@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.page-template": "vue",
+        "*.layout-template": "vue",
+        "*.vue": "vue",
+        "list": "cpp",
+        "optional": "cpp",
+        "system_error": "cpp"
+    }
+}
