@@ -83,7 +83,6 @@ public:
     Value get(Key key) override {
         Value value;
         if (!get(key, value)) {
-            // throw std::runtime_error("key not found");
             return -1;
         }
         return value;

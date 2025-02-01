@@ -8,7 +8,7 @@
 #include <array>
 
 #include "LruCache.h"
-// #include "LfuCache.h"
+#include "LfuCache.h"
 // #include "ArcCache/ArcCache.h"
 #include "CachePolicy.h"
 
@@ -67,8 +67,27 @@ void testLru(){
     std::cout << "TestLru end\n";
 }
 
+void testLfu(){
+    Cache::LfuCache<int, int> lfu(2);
+    
+    std::cout << "TestLfu begin\n";
+    lfu.put(1, 1);   // cache=[1,_], cnt(1)=1
+    lfu.put(2, 2);   // cache=[2,1], cnt(2)=1, cnt(1)=1
+    std::cout << "get(1): " << lfu.get(1) << std::endl; // 返回 1
+    // cache=[1,2], cnt(2)=1, cnt(1)=2
+    lfu.put(3, 3);
+    std::cout << "get(2): " << lfu.get(2) << std::endl; // 返回 -1 (未找到)
+    std::cout << "get(3): " << lfu.get(3) << std::endl; // 返回 3
+    lfu.put(4, 4);   // cache=[4,3], cnt(4)=1, cnt(3)=1
+    std::cout << "get(1): " << lfu.get(1) << std::endl; // 返回 -1 (未找到)
+    std::cout << "get(3): " << lfu.get(3) << std::endl; // 返回 3
+    std::cout << "get(4): " << lfu.get(4) << std::endl; // 返回 4
+    std::cout << "TestLfu end\n";
+}
+
 int main(){
     // testLru();
+    // testLfu();
     testHotDataAccess();
     testLoopPattern();
     testWorkloadShift();

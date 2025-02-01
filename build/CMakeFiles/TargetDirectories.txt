@@ -1,3 +1,0 @@
-/home/ycfhnnd/Softwares/vscode_workspace/project/Cache/NewCache/build/CMakeFiles/main.dir
-/home/ycfhnnd/Softwares/vscode_workspace/project/Cache/NewCache/build/CMakeFiles/edit_cache.dir
-/home/ycfhnnd/Softwares/vscode_workspace/project/Cache/NewCache/build/CMakeFiles/rebuild_cache.dir
