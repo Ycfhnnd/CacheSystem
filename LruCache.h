@@ -44,7 +44,7 @@ public:
     using LruNodeType = LruNode<Key, Value>; // 定义 LruNode 类型别名
     using NodePtr = std::shared_ptr<LruNodeType>; // 定义 NodePtr 类型别名
 
-    LruCache(int capacity_) : capacity(capacity_) {
+    LruCache(size_t capacity_) : capacity(capacity_) {
         dummy = std::make_shared<LruNode<Key, Value>>(Key(), Value());
         dummy->prev = dummy;
         dummy->next = dummy;
@@ -106,7 +106,7 @@ public:
         dummy->next = node;
     }
 private:
-    int capacity; //缓存容量
+    size_t capacity; //缓存容量
     std::unordered_map<Key, std::shared_ptr<LruNodeType>> key_to_node;
     std::shared_ptr<LruNodeType> dummy;
     std::mutex mtx;
